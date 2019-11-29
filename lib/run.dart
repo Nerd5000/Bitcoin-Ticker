@@ -1,5 +1,5 @@
 import 'package:bitcoin_ticker/networking.dart';
-import 'dart:io' show stdout;
+import 'dart:io' show stdout, stdin;
 import 'dart:async';
 
 class RunApp {
@@ -15,7 +15,11 @@ class RunApp {
     }
   }
 
-  void runApp(int minutes) {
+  void runApp() {
+    stdout.write('Enter Minutes to Repeate : ');
+    int minutes = int.parse(stdin.readLineSync());
+    stdout.write('Processing');
+    
     Timer.periodic(new Duration(minutes: minutes), (ticker) async {
       stdout.writeln(' ');
       stdout.writeln(' ');
